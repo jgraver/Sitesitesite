@@ -4,7 +4,7 @@ import { INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import Button from "../components/Button"
 
 export const query = graphql`
