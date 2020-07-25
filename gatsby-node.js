@@ -37,6 +37,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               slug
+              media
             }
           }
         }
@@ -44,16 +45,33 @@ module.exports.createPages = async ({ graphql, actions }) => {
     `
   )
 
-  console.log("res", res)
-
   // Create blog post pages.
   res.data.allContentfulProject.edges.forEach(edge => {
+    const media = edge.node.media.toLowerCase()
+
+    createPage({
+      // Path for this page — required
+      path: `${media}/${edge.node.slug}`,
+      component: projectFullTemplate,
+      context: {
+        slug: `${edge.node.slug}`,
+        // Add optional context data to be inserted
+        // as props into the page component..
+        //
+        // The context data can also be used as
+        // arguments to the page GraphQL query.
+        //
+        // The page "path" is always available as a GraphQL
+        // argument.
+      },
+    })
+
     createPage({
       // Path for this page — required
       path: `${edge.node.slug}`,
       component: projectFullTemplate,
       context: {
-        slug: edge.node.slug,
+        slug: `${edge.node.slug}`,
         // Add optional context data to be inserted
         // as props into the page component..
         //

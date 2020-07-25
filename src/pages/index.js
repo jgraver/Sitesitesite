@@ -13,7 +13,7 @@ export default function Index(props) {
   const data = useStaticQuery(graphql`
     query {
       allContentfulProject(
-        filter: { projectDate: { gte: "2018-12-01" } }
+        filter: { projectDate: { gte: "2018-07-01" } }
         sort: { fields: projectDate, order: DESC }
       ) {
         edges {

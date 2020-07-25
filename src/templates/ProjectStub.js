@@ -43,7 +43,6 @@ const Video = props => {
   const options = {
     renderNode: {
       [INLINES.HYPERLINK]: node => {
-        console.log("node.data.uri", node.data.uri)
         if (node.data.uri.includes("player.vimeo.com/video")) {
           return (
             <IframeContainer>
@@ -56,7 +55,6 @@ const Video = props => {
             </IframeContainer>
           )
         } else if (node.data.uri.includes("youtube.com")) {
-          console.log("HELLO???????????????????????????")
           return (
             <IframeContainer>
               <iframe
@@ -96,10 +94,6 @@ export default function ProjectStub(props) {
       },
     },
   }
-
-  // console.log("images", images)
-
-  console.log("videoLink", videoLink)
 
   return (
     <StubStyles>

@@ -62,37 +62,27 @@ const Header = ({ siteTitle }) => (
         <ul>
           <li>
             <Link to="/">
-              <a>
-                <Button name="recent(ish)" />
-              </a>
+              <Button name="recent(ish)" />
             </Link>
           </li>
           <li>
             <Link to="/print">
-              <a>
-                <Button name="print" />
-              </a>
+              <Button name="print" />
             </Link>
           </li>
           <li>
             <Link to="/motion">
-              <a>
-                <Button name="motion" />
-              </a>
+              <Button name="motion" />
             </Link>
           </li>
           <li>
             <Link to="/sound">
-              <a>
-                <Button name="sound" />
-              </a>
+              <Button name="sound" />
             </Link>
           </li>
           <li>
             <Link to="/todos">
-              <a>
-                <Button name="all" />
-              </a>
+              <Button name="all" />
             </Link>
           </li>
         </ul>
