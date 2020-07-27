@@ -39,7 +39,7 @@ export default function Index(props) {
 
   return (
     <Layout>
-      <SEO title="Burger" />
+      <SEO title="¡Todos!" />
 
       <PostStyles>
         <h1 className="post_header">todos los proyectos</h1>
