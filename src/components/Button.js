@@ -22,13 +22,6 @@ const StyledButton = styled.button`
 
   &:hover {
     background-position: left bottom;
-    /* position: relative;
-    top: 3px;
-    padding: 5px;
-    color: white;
-    background-color: black;
-    border: white solid 1px;
-    box-shadow: none; */
   }
 
   &:active {
@@ -41,6 +34,12 @@ const StyledButton = styled.button`
   &:focus {
     outline: 0 !important;
     box-shadow: 0 !important;
+  }
+
+  /*  Media queries */
+
+  @media (max-width: 800px) {
+    padding: 4px;
   }
 `
 

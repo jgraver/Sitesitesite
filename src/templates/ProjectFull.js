@@ -1,11 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { INLINES } from "@contentful/rich-text-types"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 
 import Layout from "../components/Layout"
 import Button from "../components/Button"
+import Video from "../components/Video"
 
 export const query = graphql`
   query($slug: String!) {
@@ -48,80 +47,15 @@ const StubStyles = styled.div`
   }
 `
 
-const IframeContainer = styled.span`
-  padding-bottom: 56.25%;
-  position: relative;
-  display: block;
-  width: 100%;
-
-  > iframe {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-`
-
-const Video = props => {
-  const options = {
-    renderNode: {
-      [INLINES.HYPERLINK]: node => {
-        if (node.data.uri.includes("player.vimeo.com/video")) {
-          return (
-            <IframeContainer>
-              <iframe
-                title="Unique Title 001"
-                src={node.data.uri}
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-            </IframeContainer>
-          )
-        } else if (node.data.uri.includes("youtube.com/embed")) {
-          return (
-            <IframeContainer>
-              <iframe
-                title="Unique Title 002"
-                src={node.data.uri}
-                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-            </IframeContainer>
-          )
-        }
-      },
-    },
-  }
-
-  return <div>{documentToReactComponents(props.json, options)}</div>
-}
-
 export default function ProjectFull(props) {
   const {
     title,
-    media,
     projectDate,
     location,
-    slug,
     videoLink,
     images,
     description,
   } = props.data.contentfulProject
-
-  const imgOptions = {
-    renderNode: {
-      "embedded-asset-block": node => {
-        const alt = node.data.target.fields.title["en-US"]
-        const url = node.data.target.fields.file["en-US"].url
-        return <img alt={alt} src={url} />
-      },
-    },
-  }
-
-  // console.log("images", images)
-  console.log("props", props)
 
   return (
     <Layout>

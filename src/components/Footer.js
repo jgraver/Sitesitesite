@@ -1,8 +1,6 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+// import { Link } from "gatsby"
 import styled from "styled-components"
-import Button from "./Button"
 
 const FooterStyles = styled.footer`
   margin-top: 3rem;

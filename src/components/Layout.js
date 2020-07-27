@@ -70,7 +70,7 @@ table {
 body {
   background-color: teal;
   margin: 0 auto;
-	width: 750px;
+	max-width: 750px;
 	background-color: black;
   font-size: 10px;
   font-family: "aktiv-grotesk-std", sans-serif;
@@ -87,7 +87,6 @@ h1 {
   font-size: 10rem;
   letter-spacing: -.5rem;
   font-weight: bold;
-  
 }
 
 h2 {
@@ -113,7 +112,7 @@ h5 {
 
 p {
   font-size: 1.3rem;
-  line-height: 1.3em;
+  line-height: 1.3rem;
 }
 
 main {
@@ -122,6 +121,31 @@ main {
 
 .post_header {
   font-size: 50px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+}
+
+/*  Media Queries */
+
+@media (max-width: 600px) {
+  body {
+    max-width: 500px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 450px) {
+  body {
+    max-width: 400px;
+    font-size: 8px;
+  }
+
+  header {
+    position: relative;
+  }
 }
 `
 

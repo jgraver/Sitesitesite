@@ -1,15 +1,12 @@
-import React, { useState } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 import ProjectsStyles from "../styles/ProjectsStyles.js"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import TrashCan from "../components/TrashCan"
 import ProjectStub from "../templates/ProjectStub"
 
 export default function Index(props) {
-  const [projects, setProjects] = useState(0)
-
   const data = useStaticQuery(graphql`
     query {
       allContentfulProject(

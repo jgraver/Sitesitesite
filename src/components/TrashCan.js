@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import TrashCanUrl from "../images/joshua_graver_timetrasher.gif"
 import styled from "styled-components"
 
@@ -12,11 +11,13 @@ const TrashCanStyles = styled.div`
     width: 40px;
     height: 64px;
   }
+
+  /* --- Media queries */ 
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `
-
-const propTypes = {}
-
-const defaultProps = {}
 
 export default function TrashCan(props) {
   return (
@@ -25,6 +26,3 @@ export default function TrashCan(props) {
     </TrashCanStyles>
   )
 }
-
-TrashCan.propTypes = propTypes
-TrashCan.defaultProps = defaultProps

@@ -1,10 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import Button from "../components/Button"
-
-import { INLINES } from "@contentful/rich-text-types"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components"
+
+import Button from "../components/Button"
+import Video from "../components/Video"
 
 const StubStyles = styled.div`
   .post {
@@ -24,76 +23,8 @@ const StubStyles = styled.div`
   }
 `
 
-const IframeContainer = styled.span`
-  padding-bottom: 56.25%;
-  position: relative;
-  display: block;
-  width: 100%;
-
-  > iframe {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-`
-
-const Video = props => {
-  const options = {
-    renderNode: {
-      [INLINES.HYPERLINK]: node => {
-        if (node.data.uri.includes("player.vimeo.com/video")) {
-          return (
-            <IframeContainer>
-              <iframe
-                title="Unique Title 001"
-                src={node.data.uri}
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-            </IframeContainer>
-          )
-        } else if (node.data.uri.includes("youtube.com")) {
-          return (
-            <IframeContainer>
-              <iframe
-                title="Unique Title 001"
-                src={node.data.uri}
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-            </IframeContainer>
-          )
-        }
-      },
-    },
-  }
-
-  return <div>{documentToReactComponents(props.json, options)}</div>
-}
-
 export default function ProjectStub(props) {
-  const {
-    title,
-    media,
-    projectDate,
-    location,
-    slug,
-    videoLink,
-    images,
-    description,
-  } = props
-
-  const imgOptions = {
-    renderNode: {
-      "embedded-asset-block": node => {
-        const alt = node.data.target.fields.title["en-US"]
-        const url = node.data.target.fields.file["en-US"].url
-        return <img alt={alt} src={url} />
-      },
-    },
-  }
+  const { title, projectDate, location, slug, videoLink, images } = props
 
   return (
     <StubStyles>
@@ -111,23 +42,6 @@ export default function ProjectStub(props) {
           <p className="post_location_date">{`${location} | ${projectDate}`}</p>
         </div>
       </div>
-
-      <p className="post_description">{description.description}</p>
     </StubStyles>
   )
 }
-
-// return (
-//   <>
-//     <h1>video!</h1>
-
-//     <IframeContainer>
-//       <iframe
-//         title="Unique Title 001"
-//         src={subNode.data.uri}
-//         frameBorder="0"
-//         allowFullScreen
-//       ></iframe>
-//     </IframeContainer>
-//   </>
-// )

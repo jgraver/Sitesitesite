@@ -1,15 +1,38 @@
-import React, { useState } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-
-import ProjectsStyles from "../styles/ProjectsStyles.js"
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import TrashCan from "../components/TrashCan"
 import ProjectStub from "../templates/ProjectStub"
 
-export default function Index(props) {
-  const [projects, setProjects] = useState(0)
+const ProjectsStyles = styled.div`
+  .post_header {
+    /* margin-top: 70px; */
+    margin-bottom: 0px;
+    font-size: 6rem;
+    letter-spacing: -0.5rem;
+    font-weight: bold;
+  }
 
+  .post {
+    padding-top: 70px;
+    width: 100%;
+    margin-bottom: 0px;
+    /* border: 1px solid yellowgreen; */
+  }
+
+  /* ----- Media queries --- */
+
+  @media (max-width: 600px) {
+    .post_header {
+      font-size: 5rem;
+      letter-spacing: -0.3rem;
+      text-align: center;
+    }
+  }
+`
+
+export default function Index(props) {
   const data = useStaticQuery(graphql`
     query {
       allContentfulProject(
@@ -45,7 +68,7 @@ export default function Index(props) {
 
   return (
     <Layout>
-      <SEO title="Burger" />
+      <SEO title="Home" />
 
       <ProjectsStyles>
         <h1 className="post_header">recent(ish)</h1>

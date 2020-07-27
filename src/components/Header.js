@@ -1,5 +1,4 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
 import Button from "./Button"
@@ -7,26 +6,27 @@ import Button from "./Button"
 const HeaderStyles = styled.header`
   #navwrapper {
     display: flex;
+    -webkit-box-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
     align-items: center;
     width: 750px;
     max-height: 70px;
-    padding: 20px 0;
-    position: fixed;
     background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 10px 10px -10px black;
+    box-shadow: black 0px 10px 10px -10px;
     color: white;
-    font-family: "aktiv-grotesk-std", sans-serif;
-    font-size: 15px;
+    font-family: aktiv-grotesk-std, sans-serif;
+    font-size: 1.5rem;
     z-index: 29;
-    /* border: 1px solid red; */
+    padding: 20px 0px;
+    margin: 0 auto;
   }
 
   #info1 {
     font-weight: bold;
     color: white;
     font-family: "aktiv-grotesk-std", sans-serif;
-    font-size: 15px;
+    font-size: 1.5rem;
   }
 
   #info3 {
@@ -40,17 +40,52 @@ const HeaderStyles = styled.header`
 
   #info3 ul li a {
     font-family: "aktiv-grotesk-std", sans-serif;
-    font-size: 15px;
+    font-size: 1.5rem;
     color: white;
     text-decoration: none;
     font-weight: bold;
+  }
+
+  /*  Media Queries */
+
+  @media (max-width: 800px) {
+    #navwrapper {
+      max-width: 600px;
+      /* min-width: 600px; */
+    }
+  }
+
+  @media (max-width: 600px) {
+    #navwrapper {
+      max-width: 450px;
+      /* min-width: 425px; */
+    }
+  }
+
+  @media (max-width: 450px) {
+    #navwrapper {
+      max-width: 400px;
+      flex-flow: column nowrap;
+      /* border: 1px solid red; */
+    }
+
+    #info1 {
+      padding-left: 10px;
+      align-self: flex-start;
+    }
+
+    #info3 {
+      padding-top: 10px;
+      padding-right: 10px;
+      align-self: flex-end;
+    }
   }
 `
 
 const Header = ({ siteTitle }) => (
   <HeaderStyles>
     <div id="navwrapper">
-      <div>
+      <div id="info1">
         <Link to="/">
           <div id="info1" className="info">
             joshua graver
