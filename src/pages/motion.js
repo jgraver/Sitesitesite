@@ -1,37 +1,10 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
 
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import ProjectStub from "../templates/ProjectStub"
-
-const ProjectsStyles = styled.div`
-  .post_header {
-    /* margin-top: 70px; */
-    margin-bottom: 0px;
-    font-size: 6rem;
-    letter-spacing: -0.5rem;
-    font-weight: bold;
-  }
-
-  .post {
-    padding-top: 70px;
-    width: 100%;
-    margin-bottom: 0px;
-    /* border: 1px solid yellowgreen; */
-  }
-
-  /* ----- Media queries --- */
-
-  @media (max-width: 600px) {
-    .post_header {
-      font-size: 5rem;
-      letter-spacing: -0.3rem;
-      text-align: center;
-    }
-  }
-`
+import PostStyles from "../styles/PostStyles"
 
 export default function Index(props) {
   const data = useStaticQuery(graphql`
@@ -71,7 +44,7 @@ export default function Index(props) {
     <Layout>
       <SEO title="Burger" />
 
-      <ProjectsStyles>
+      <PostStyles>
         <h1 className="post_header">motion</h1>
         {edges.map(edge => {
           const {
@@ -102,7 +75,7 @@ export default function Index(props) {
             />
           )
         })}
-      </ProjectsStyles>
+      </PostStyles>
     </Layout>
   )
 }

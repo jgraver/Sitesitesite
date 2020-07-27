@@ -130,6 +130,13 @@ header {
 
 /*  Media Queries */
 
+@media (max-width: 750px) {
+  body {
+    max-width: 600px;
+    font-size: 10px;
+  }
+}
+
 @media (max-width: 600px) {
   body {
     max-width: 500px;
@@ -137,7 +144,7 @@ header {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   body {
     max-width: 400px;
     font-size: 8px;

@@ -15,7 +15,7 @@ const StyledButton = styled.button`
   background-size: auto 200%;
   color: white;
   font-weight: bold;
-  font-size: ${props => props.fontSize};
+  /* font-size: ${props => props.fontSize}; */
   border: white solid 1px;
   box-shadow: 4px 4px 0px 0px #000000;
   transition: 0.5s ease-in-out;
