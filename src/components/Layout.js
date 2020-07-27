@@ -115,6 +115,19 @@ p {
   line-height: 1.3rem;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 main {
   padding-top: 20px;
 }

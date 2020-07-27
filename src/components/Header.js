@@ -59,16 +59,16 @@ const HeaderStyles = styled.header`
     #navwrapper {
       max-width: 450px;
       /* min-width: 425px; */
+      font-size: 1.3rem;
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 500px) {
     #navwrapper {
-      max-width: 400px;
       flex-flow: column nowrap;
+      max-width: 440px;
       /* border: 1px solid red; */
     }
-
     #info1 {
       padding-left: 10px;
       align-self: flex-start;
@@ -80,6 +80,14 @@ const HeaderStyles = styled.header`
       align-self: flex-end;
     }
   }
+
+  @media (max-width: 450px) {
+    #navwrapper {
+      max-width: 400px;
+      flex-flow: column nowrap;
+      /* border: 1px solid red; */
+    }
+  }
 `
 
 const Header = ({ siteTitle }) => (
@@ -87,9 +95,7 @@ const Header = ({ siteTitle }) => (
     <div id="navwrapper">
       <div id="info1">
         <Link to="/">
-          <div id="info1" className="info">
-            joshua graver
-          </div>
+          <p>joshua graver</p>
         </Link>
       </div>
 
